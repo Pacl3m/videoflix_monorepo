@@ -1,0 +1,32 @@
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 0;
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 270px;
+        height: 43px;
+    }
+
+    a {
+        cursor: pointer;
+        color: white;
+        font-size: 18px;
+        font-weight: 500;
+        font-family: 'DM Sans';
+        text-decoration: none;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

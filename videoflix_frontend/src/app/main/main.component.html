@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<div class="main">
+
+    <div class="video-container">
+        <!-- <div class="video-overlay"></div> -->
+        <video #videoPlayer autoplay muted loop class="background-video">
+            <source [src]="currentVideoSrc" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="video-wrapper main-pd">
+
+            <div class="video-wrapper-top">
+                <div class="video-description">
+                    <h2>{{ currentVideo?.title }}</h2>
+                    <span>{{ currentVideo?.description }}</span>
+                    <div class="cta-button">
+                        <img src="../../assets/img/mainImg/play_arrow.svg" alt="Log Out" width="24" height="24">Play
+                    </div>
+                </div>
+
+                <!-- <div class="video-description-spacer">
+                </div> -->
+            </div>
+
+            <div class="video-wrapper-botton"></div>
+
+            <div class="new-videos">
+                <h3>New on Videoflix </h3>
+                <div class="videos-container">
+
+                    <!-- <app-videobox [imageUrl]="'../../assets/img/videoImg/test.jpg'"
+                        [videoSrc]="'../../assets/videos/268290_small.mp4'" [altText]="'Ein Video'"
+                        (videoSelected)="onVideoChange($event)"></app-videobox>
+                    <app-videobox [imageUrl]="'../../assets/img/videoImg/test.jpg'"
+                        [videoSrc]="'../../assets/videos/275633_small.mp4'" [altText]="'Ein Video'"
+                        (videoSelected)="onVideoChange($event)"></app-videobox> -->
+
+                    <app-videobox *ngFor="let video of videos" [imageUrl]="video.thumbnail" [videoSrc]="video.videoSrc"
+                        [altText]="video.title" [id]="video.id" (videoSelected)="onVideoChange($event)">
+                    </app-videobox>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

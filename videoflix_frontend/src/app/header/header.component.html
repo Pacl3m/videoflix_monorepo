@@ -1,0 +1,15 @@
+<header *ngIf="!isMainPage" class="site-header">
+    <div class="logo_container" routerLink="/"><img class="logo_big" src="assets/img/headerImg/logo_big.png" alt=""><img
+            class="logo_text" src="assets/img/headerImg/logo_text.png" alt=""></div>
+    <a *ngIf="!isLoginPage" class="loginButton" routerLink="/login">
+        Log in
+    </a>
+</header>
+
+<header *ngIf="isMainPage" class="site-header">
+    <div class="logo_container" routerLink="/main"><img class="logo_big" src="assets/img/headerImg/logo_big.png" alt="">
+    </div>
+    <a class="loginButton" routerLink="/login">
+        <img src="../../assets/img/mainImg/logout.svg" alt="Log Out" width="18" height="18"> Log Out
+    </a>
+</header>

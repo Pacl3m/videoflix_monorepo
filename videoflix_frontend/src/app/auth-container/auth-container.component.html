@@ -1,0 +1,151 @@
+<!-- log in page -->
+
+<div *ngIf="isLogin" class="background">
+    <div class="content">
+        <h2>Log in</h2>
+        <form [formGroup]="logInForm">
+            <div class="inputContainer">
+                <input formControlName="email" placeholder="Email" />
+
+                <div class="error" *ngIf="logInForm.get('email')?.touched && logInForm.get('email')?.invalid">
+                    <div *ngIf="logInForm.get('email')?.errors?.['email']"><img
+                            src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Invalid
+                        email address.</div>
+                </div>
+
+            </div>
+
+            <div class="inputContainer">
+                <input formControlName="password" [type]="type" placeholder="Password">
+                <span (click)="togglePasswordVisibility()" class="the-eye"
+                    [ngClass]="{'visibility_on': !isText, 'visibility_off': isText }"></span>
+
+                <div class="error"
+                    *ngIf="logInForm.get('password')?.hasError('minlength') && logInForm.get('password')?.touched">
+                    <img src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12">
+                    Password must be at least 8 characters long.
+                </div>
+
+            </div>
+            <button [disabled]="!logInForm.valid" class="loginButton" type="submit">Log in</button>
+        </form>
+        <div class="contentBotton">
+            <a routerLink="/forgotPW">Forgot password?</a>
+            <span>
+                <p>New to Videoflix?</p><a routerLink="/signUp">Sign Up now</a>
+            </span>
+        </div>
+    </div>
+</div>
+
+<!-- forgot password page -->
+
+<div *ngIf="isForgotPW" class="background">
+    <div class="content">
+        <h2>Forgot your<br>password?</h2>
+        <span class="secondHeadline">We will send you an email with instructions to reset your password.</span>
+        <form [formGroup]="forgotPasswordForm">
+            <div class="inputContainer">
+                <input formControlName="email" placeholder="Email" />
+
+                <div class="error"
+                    *ngIf="forgotPasswordForm.get('email')?.touched && forgotPasswordForm.get('email')?.invalid">
+                    <div *ngIf="forgotPasswordForm.get('email')?.errors?.['email']"><img
+                            src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Invalid
+                        email address.</div>
+                </div>
+
+            </div>
+
+            <div class="inputContainer">
+                <button [disabled]="!forgotPasswordForm.valid" class="loginButton" type="submit">Send Email</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- sign up page -->
+
+<div *ngIf="isSignUp" class="background">
+    <div class="content">
+        <h2>Sign up</h2>
+        <form [formGroup]="signUpForm">
+            <div class="inputContainer"><input formControlName="email" placeholder="Email" />
+
+                <div class="error" *ngIf="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
+                    <div *ngIf="signUpForm.get('email')?.errors?.['required']"><img
+                            src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Email is
+                        required.</div>
+                    <div *ngIf="signUpForm.get('email')?.errors?.['email']"><img
+                            src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Invalid
+                        email address.</div>
+                </div>
+
+            </div>
+
+            <div class="inputContainer">
+                <input formControlName="password" [type]="type" placeholder="Enter a password">
+                <span (click)="togglePasswordVisibility()" class="the-eye"
+                    [ngClass]="{'visibility_on': !isText, 'visibility_off': isText }"></span>
+
+                <div class="error"
+                    *ngIf="signUpForm.get('password')?.hasError('minlength') && signUpForm.get('password')?.touched">
+                    <img src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12">
+                    Password must be at least 8 characters long.
+                </div>
+
+            </div>
+            <div class="inputContainer">
+                <input formControlName="repeated_password" [type]="type" placeholder="Confirm password">
+                <span (click)="togglePasswordVisibility()" class="the-eye"
+                    [ngClass]="{'visibility_on': !isText, 'visibility_off': isText }"></span>
+
+                <div class="error"
+                    *ngIf="signUpForm.errors?.['passwordsDontMatch'] && signUpForm.get('repeated_password')?.touched">
+                    <img src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Passwords do
+                    not match.
+                </div>
+
+            </div>
+            <button [disabled]="!signUpForm.valid" class="loginButton" type="submit">Get Started</button>
+        </form>
+    </div>
+</div>
+
+<!-- reset password page -->
+
+<div *ngIf="isResetPW" class="background">
+    <div class="content">
+        <h2>Reset password</h2>
+        <span class="secondHeadline">Create a new password for your <span
+                style="color: rgb(46, 62, 223);">Videoflix</span> account.</span>
+        <form [formGroup]="resetPWForm">
+
+            <div class="inputContainer">
+                <input formControlName="password" [type]="type" placeholder="Enter a password">
+                <span (click)="togglePasswordVisibility()" class="the-eye"
+                    [ngClass]="{'visibility_on': !isText, 'visibility_off': isText }"></span>
+
+                <div class="error"
+                    *ngIf="resetPWForm.get('password')?.hasError('minlength') && resetPWForm.get('password')?.touched">
+                    <img src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12">
+                    Password must be at least 8 characters long.
+                </div>
+
+            </div>
+            <div class="inputContainer">
+                <input formControlName="repeated_password" [type]="type" placeholder="Confirm password">
+                <span (click)="togglePasswordVisibility()" class="the-eye"
+                    [ngClass]="{'visibility_on': !isText, 'visibility_off': isText }"></span>
+
+                <div class="error"
+                    *ngIf="resetPWForm.errors?.['passwordsDontMatch'] && resetPWForm.get('repeated_password')?.touched">
+                    <img src="../../assets/img/errors/warning.svg" alt="Error Icon" width="14" height="12"> Passwords do
+                    not match.
+                </div>
+
+            </div>
+            <button [disabled]="!resetPWForm.valid" class="loginButton" type="submit">Reset my password</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+.content {
+    color: white;
+    font-family: 'DM Sans';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 24px;
+
+    .content-top {
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+    .content-middle {
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .content-botton {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        height: 48px;
+
+        input.emailInputField {
+            width: 360px;
+            height: 100%;
+            background: transparent;
+            border: 1px solid white;
+            border-radius: 40px;
+            // padding: 8px 12px;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: 125ms;
+            padding-left: 24px;
+
+            &::placeholder {
+                color: white;
+                font-size: 18px;
+            }
+
+            &:focus {
+                // border-width: 1.5px;
+                transform: scale(1.01);
+            }
+        }
+
+        .signUpButton {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 4px 24px;
+            border-radius: 40px;
+            background-color: rgb(46, 62, 223);
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            transition: 200ms;
+
+            &:hover {
+                background-color: rgb(77, 89, 224);
+                transform: scale(1.02);
+            }
+
+            &:active {
+                transform: scale(0.97) translateY(1px);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

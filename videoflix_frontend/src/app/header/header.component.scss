@@ -1,0 +1,55 @@
+.site-header {
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    height: 48px;
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    right: 5rem;
+
+    .logo_container {
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .logo_big {
+            // width: 200px;
+            height: 32px;
+        }
+
+        .logo_text {
+            // height: fit-content;
+        }
+    }
+
+    .loginButton {
+        text-decoration: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 48px;
+        padding: 0px 24px;
+        border-radius: 40px;
+        background-color: rgb(46, 62, 223);
+        color: white;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: 'DM Sans';
+        transition: 200ms;
+
+        &:hover {
+            background-color: rgb(77, 89, 224);
+            transform: scale(1.02);
+        }
+
+        &:active {
+            transform: scale(0.97) translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
