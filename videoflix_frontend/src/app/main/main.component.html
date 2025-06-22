@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+
+
 <div class="main">
 
     <div class="video-container">
@@ -19,23 +21,46 @@
                         <img src="../../assets/img/mainImg/play_arrow.svg" alt="Log Out" width="24" height="24">Play
                     </div>
                 </div>
-
-                <!-- <div class="video-description-spacer">
-                </div> -->
             </div>
 
             <div class="video-wrapper-botton"></div>
 
-            <div class="new-videos">
+            <div class="videos">
                 <h3>New on Videoflix </h3>
                 <div class="videos-container">
 
-                    <!-- <app-videobox [imageUrl]="'../../assets/img/videoImg/test.jpg'"
-                        [videoSrc]="'../../assets/videos/268290_small.mp4'" [altText]="'Ein Video'"
-                        (videoSelected)="onVideoChange($event)"></app-videobox>
-                    <app-videobox [imageUrl]="'../../assets/img/videoImg/test.jpg'"
-                        [videoSrc]="'../../assets/videos/275633_small.mp4'" [altText]="'Ein Video'"
-                        (videoSelected)="onVideoChange($event)"></app-videobox> -->
+                    <app-videobox *ngFor="let video of videos" [imageUrl]="video.thumbnail" [videoSrc]="video.videoSrc"
+                        [altText]="video.title" [id]="video.id" (videoSelected)="onVideoChange($event)">
+                    </app-videobox>
+
+                </div>
+            </div>
+
+            <div class="videos">
+                <h3>Stromberg</h3>
+                <div class="videos-container">
+
+                    <app-videobox *ngFor="let video of videos" [imageUrl]="video.thumbnail" [videoSrc]="video.videoSrc"
+                        [altText]="video.title" [id]="video.id" (videoSelected)="onVideoChange($event)">
+                    </app-videobox>
+
+                </div>
+            </div>
+
+            <div class="videos">
+                <h3>Winterberg</h3>
+                <div class="videos-container">
+
+                    <app-videobox *ngFor="let video of videos" [imageUrl]="video.thumbnail" [videoSrc]="video.videoSrc"
+                        [altText]="video.title" [id]="video.id" (videoSelected)="onVideoChange($event)">
+                    </app-videobox>
+
+                </div>
+            </div>
+
+            <div class="videos">
+                <h3>Saalbach</h3>
+                <div class="videos-container">
 
                     <app-videobox *ngFor="let video of videos" [imageUrl]="video.thumbnail" [videoSrc]="video.videoSrc"
                         [altText]="video.title" [id]="video.id" (videoSelected)="onVideoChange($event)">

@@ -1,0 +1,55 @@
+services:
+  # PostgreSQL-Datenbank
+  # db:
+  #   image: postgres:latest
+  #   container_name: videoflix_database
+  #   environment:
+  #     POSTGRES_DB: ${DB_NAME}
+  #     POSTGRES_USER: ${DB_USER}
+  #     POSTGRES_PASSWORD: ${DB_PASSWORD}
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+
+  # Redis Cache
+  # redis:
+  #   image: redis:latest
+  #   container_name: videoflix_redis
+  #   volumes:
+  #     - redis_data:/data
+
+  # Django Backend (später aktivieren)
+  # backend:
+  #   build:
+  #     context: ./videoflix_backend
+  #     dockerfile: backend.Dockerfile
+  #   env_file: .env
+  #   container_name: videoflix_backend
+  #   volumes:
+  #     - ./videoflix_backend:/app
+  #     - videoflix_media:/app/media
+  #     - videoflix_static:/app/static
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
+  #     - redis
+
+  # Angular Frontend
+  frontend:
+    platform: linux/arm64
+    build:
+      context: ./videoflix_frontend
+      dockerfile: Dockerfile.dev # wenn du eins anlegst
+    container_name: videoflix_frontend
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./videoflix_frontend:/app
+      - /app/node_modules
+    # command: [ "npx", "ng", "serve", "--host", "0.0.0.0" ]
+
+volumes:
+  postgres_data:
+  redis_data:
+  videoflix_media:
+  videoflix_static:

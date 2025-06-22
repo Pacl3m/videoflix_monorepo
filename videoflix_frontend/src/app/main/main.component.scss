@@ -3,6 +3,11 @@
     padding-right: 5rem;
 }
 
+.background {
+    background-color: black;
+    height: 100%;
+}
+
 .main {
     font-family: 'DM Sans';
     height: 100vh;
@@ -49,6 +54,10 @@
             width: calc(100% - 10rem);
             padding-top: 20rem;
             z-index: 3;
+
+            .video-wrapper-top {
+                min-height: 44rem;
+            }
 
             .video-description {
                 max-width: 500px;
@@ -109,7 +118,7 @@
             }
         }
 
-        .new-videos {
+        .videos {
             display: flex;
             flex-direction: column;
             position: relative;
@@ -117,6 +126,7 @@
             display: flex;
             gap: 1rem;
             z-index: 3;
+            margin-top: 32px;
 
             h3 {
                 margin: 0;
@@ -128,6 +138,14 @@
             .videos-container {
                 display: flex;
                 gap: 16px;
+                overflow-x: scroll;
+                overflow-y: hidden;
+                height: 100%;
+                scrollbar-width: none;
+
+                app-videobox {
+                    cursor: pointer;
+                }
 
                 .video-box {
                     cursor: pointer;
