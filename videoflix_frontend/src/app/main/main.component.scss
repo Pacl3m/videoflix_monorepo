@@ -1,3 +1,7 @@
+html {
+    background-color: black;
+}
+
 .main-pd {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -58,6 +62,8 @@
             .video-wrapper-top {
                 min-height: 44rem;
             }
+
+            .video-wrapper-botton {}
 
             .video-description {
                 max-width: 500px;
